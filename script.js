@@ -1,19 +1,91 @@
-//closure
-function eAgora() {
-  let cont = 1
-  function f1() {
-    console.log(cont)
-  }
-  cont++
-  function f2() {
-    console.log(cont)
-  }
-  cont++
-  return(f1,f2 )
+//objetos javascript
+//uma pessoa se chama Maria, tem 21 anos e mora na rua B, número 20
+//uma concessionaria tem CNPJ e um endereço. Ela possui alguns carros em estoque.Cada carro 
+//tem marca, modelo e ano de fabricação.
+let = calculadora = {
+  somar: (a,b ) => a+b,
+  subtrair: function(a,b) {return a -b}
 }
-let res = eAgora()
-res.f1()
-res.f2()
+
+let res1 = calculadora.somar(1,2)
+console.log(res1)
+console.log(calculadora.subtrair(2,1))
+console.log(calculadora('subtrair'(2,1)))
+// let concessionaria = {
+//   cnpj: '00.000.0000/0001-00',
+//   endereco: {
+//     logradouro: 'Avenida B',
+//     numero: 1,
+//     bairro: 'Vila J'
+//   },
+//   veiculos: [
+//     {
+//       marca: 'Ford',
+//       modelo: 'Fiesta',
+//       ano: 2000,
+//       proprietarios: [
+//         {
+//           nome: 'Joao',
+//           telefone: 32131244
+//         },
+//         {
+//           nome: 'Kaue',
+//           telefone: 83888
+//         }
+//       ]
+//     },
+//     {
+//       marca: 'Honda',
+//       modelo: 'HR-V',
+//       ano: 2020,
+//       proprietarios: [
+//         {
+//           nome: 'Ana',
+//           telefone: 38284490
+//         }
+//       ]
+//     }
+//   ]
+// }
+
+
+
+
+//uma pessoa se chama Maria, tem 21 anos e mora na rua B, numero 20
+// let pessoa = {
+//   nome: 'Maria',
+//   idade: 21,
+//   endereco: {
+//     logradouro: 'Rua B',
+//     numero: 20,
+//     bairro: 'vila j'
+//   }
+// }
+// console.log(`${pessoa.nome}mora na ${pessoa.endereco.logradouro} `)
+// console.log(`${pessoa['nome']} tem ${pessoa['idade']} anos. Ela mora na ${pessoa.endereco['logradouro']}`),
+// numero ${pessoa['enedereco'].numero}.)
+  
+// //Uma pessoa cujo nome é joao e tem 17 anos 
+// let pessoa = {
+//   nome: 'joao',
+//   idade: 17
+// }
+// //closure
+// function eAgora() {
+//   let cont = 1
+//   function f1() {
+//     console.log(cont)
+//   }
+//   cont++
+//   function f2() {
+//     console.log(cont)
+//   }
+//   cont++
+//   return(f1,f2 )
+// }
+// let res = eAgora()
+// res.f1()
+// res.f2()
 // function saudacoesFactory(saudacao,nome) {
 //   return function() {
 //     console.log(`${saudacao}, ${nome}`)
