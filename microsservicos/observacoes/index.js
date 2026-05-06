@@ -1,5 +1,7 @@
+const axios = require("axios")
 const {v4: uuidv4} = require('uuid')
 const express = require('express')
+// const { default: axios } = require('axios')
 const app = express()
 
 app.use(express.json()) //função middleware
@@ -27,14 +29,31 @@ const observacoesPorLembretes = {}
 
 //post 
 // /lembretes/1233/observacoes
-app.post('/lembretes/:id/observacoes', (req, res) => {
+app.post('/lembretes/:id/observacoes', async (req, res) => {
     const idObs = uuidv4()
     const { texto } = req.body
     const observacoesDoLembrete = observacoesPorLembretes[req.params.id] || []
     observacoesDoLembrete.push({id: idObs, texto})
     observacoesPorLembretes[req.params.id] = observacoesDoLembrete
+    //emitir um evento do tipo ObervacaoCriada
+    //feito por mim 
+    await axios.post('http://localhost:1000/eventos', {
+        tipo: 'observacaoCriada',
+        dados: {
+            idObs,
+            texto,
+            lembreteId: req.params.id
+        }
+    })
     res.status(201).json(observacoesDoLembrete)
 })
+
+app.post('/eventos', (req, res) => {
+    const evento = req.body
+    console.log(evento)
+    res.end()
+}) 
+
 
 //fazer o endpoint get
 app.get('/lembretes/:id/observacoes', (req, res) => {

@@ -21,7 +21,8 @@ app.post('/eventos', (req, res) => {
     //enviar para o mss na porta 5000
     axios.post('http://localhost:5000/eventos',evento)
     
-
+    //enviar para o mss na porta 6000
+    axios.post('http://localhost:6000/eventos',evento)
     //encerrar com codigo 200
     res.status(200).end()
 
@@ -31,3 +32,14 @@ app.post('/eventos', (req, res) => {
 //colocar o barramento em execução na porta 10000
 const port = 10000
 app.listen(port, () =>{console.log(`Barramento, porta ${port}.`)})
+
+
+
+
+
+//talvez esteja faltando esse codigo 
+app.post('/eventos', (req, res) => {
+    const evento = req.body
+    console.log(evento)
+    res.end()
+}) 
